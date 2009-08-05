@@ -23,9 +23,9 @@ Where:
 
 - CONNECTIONS: The number of fans to display in the Fan Box. Specifying 0 hides the list of fans in the Fan Box. You cannot display more than 100 fans. (Default value is 10 connections.)
 
-- width: The width of the Fan Box in pixels. The Fan Box must be at least 200 pixels wide at minimum. (Default value is 300 pixels.)
+- WIDTH: The width of the Fan Box in pixels. The Fan Box must be at least 200 pixels wide at minimum. (Default value is 300 pixels.)
 
-- WIDTH: The URL to your own style sheet (more info: http://wiki.developers.facebook.com/index.php/Fb:fan).
+- CSS: The URL to your own style sheet (more info: http://wiki.developers.facebook.com/index.php/Fb:fan).
 
 - IFRAME: If you are unable to use JavaScript method for some reason, you can use add a Fan Box using an HTML iframe tag.
 
@@ -43,7 +43,7 @@ Where:
 == Screenshots ==
 1. Facebook Fan Box - Select Page
 
-2. Facebook Fan Box - Copy API_KEY and PROFILE_ID
+2. Facebook Fan Box - Copy API KEY and PROFILE ID
 
 <a href="http://www.facebook.com/developers/wizard.php">click here</a>
 
