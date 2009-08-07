@@ -3,7 +3,7 @@
 Plugin Name: Facebook Fan Box
 Plugin URI: http://www.hnkweb.com/2009/08/03/facebook-fan-box-wordpress-plugin/
 Description: Display Facebook Fan Box
-Version: 1.1
+Version: 1.2
 Author: Marcos Esperon
 Author URI: http://www.hnkweb.com/
 */
@@ -27,7 +27,7 @@ Author URI: http://www.hnkweb.com/
 function facebook_fan_box($api_key, $profile_id, $stream = 1, $connections = 10, $width = 300, $css = '', $iframe = 0) {
 	$output = '';
   if ($profile_id != '') {
-    if($iframe == 0) {
+    if($iframe != 1) {
       $output = '<script src="http://www.facebook.com/js/api_lib/v0.4/FeatureLoader.js.php" type="text/javascript"></script>'
                .'<script type="text/javascript">FB.init("'.$api_key.'", "");</script>'
                .'<fb:fan profile_id="'.$profile_id.'" stream="'.$stream.'" connections="'.$connections.'" width="'.$width.'" css="'.$css.'"></fb:fan>';

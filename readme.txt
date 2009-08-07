@@ -3,7 +3,7 @@ Contributors: Marcos Esperon
 Tags: facebook, fan box
 Requires at least: 2.0.0
 Tested up to: 2.8
-Stable tag: 1.1
+Stable tag: 1.2
 
 Display a Facebook Fan Box on your blog.
 
@@ -27,7 +27,7 @@ Where:
 
 - CSS: The URL to your own style sheet (more info: http://wiki.developers.facebook.com/index.php/Fb:fan).
 
-- IFRAME: If you are unable to use JavaScript method for some reason, you can use add a Fan Box using an HTML iframe tag.
+- IFRAME: If you are unable to use JavaScript method for some reason, you can use add a Fan Box using an HTML iframe tag (Default value is 0).
 
 
 == Installation ==
@@ -50,9 +50,12 @@ Where:
 3. Facebook Fan Box in your blog
 
 == Changelog ==  
-  
-= 1.0 =  
-* Initial release
+
+= 1.2 =  
+* iFrame check change.
 
 = 1.1 =  
-* iFrame support
+* iFrame support.
+
+= 1.0 =  
+* Initial release.
