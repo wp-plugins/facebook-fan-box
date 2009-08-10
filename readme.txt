@@ -3,13 +3,13 @@ Contributors: Marcos Esperon
 Tags: facebook, fan box
 Requires at least: 2.0.0
 Tested up to: 2.8
-Stable tag: 1.2
+Stable tag: 1.3
 
-Display a Facebook Fan Box on your blog.
+Display a Facebook Fan Box on your blog. Put the Facebook Fan Box in your sidebar using the widget mode or call the function inside your template.
 
 == Description ==
 
-If you have a page in Facebook about your blog and want to show the Facebook Fan Box with the recent updates and fans, just insert this line of code anywhere in your theme:
+If you have a page in Facebook about your blog and want to show the Facebook Fan Box with the recent updates and fans, just activate this widget or insert this line of code anywhere in your theme:
 
 `<?php facebook_fan_box('API_KEY', 'PROFILE_ID'); ?>`
 
@@ -29,16 +29,16 @@ Where:
 
 - IFRAME: If you are unable to use JavaScript method for some reason, you can use add a Fan Box using an HTML iframe tag (Default value is 0).
 
-
 == Installation ==
 
 1. Upload the entire facebook-fan-box folder to your wp-content/plugins/ directory.
+
 2. Activate the plugin through the 'Plugins' menu in WordPress.
-3. There is no options screen - configuration is done in your code and, optionally, by modifying the plugin:
 
-   Visit http://www.facebook.com/pages/create.php to create a new page in Facebook.
-
+3. Visit http://www.facebook.com/pages/create.php to create a new page in Facebook.
    Then visit http://www.facebook.com/developers/wizard.php to obtain the API_KEY and PROFILE_ID 
+
+4. Use this information to call the function inside your template or activate the widget.
 
 == Screenshots ==
 1. Facebook Fan Box - Select Page
@@ -50,6 +50,9 @@ Where:
 3. Facebook Fan Box in your blog
 
 == Changelog ==  
+
+= 1.3 =  
+* widget support.
 
 = 1.2 =  
 * iFrame check change.
