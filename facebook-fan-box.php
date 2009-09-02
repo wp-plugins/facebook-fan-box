@@ -3,7 +3,7 @@
 Plugin Name: Facebook Fan Box
 Plugin URI: http://www.hnkweb.com/2009/08/03/facebook-fan-box-wordpress-plugin/
 Description: Displays a Facebook Fan Box
-Version: 1.3
+Version: 1.3.1
 Author: Marcos Esperon
 Author URI: http://www.hnkweb.com/
 */
@@ -38,9 +38,9 @@ function facebook_fan_box($api_key, $profile_id, $stream = 1, $connections = 10,
     if($iframe != 1) {
       $output = '<script src="http://www.facebook.com/js/api_lib/v0.4/FeatureLoader.js.php" type="text/javascript"></script>'
                .'<script type="text/javascript">FB.init("'.$api_key.'", "");</script>'
-               .'<fb:fan profile_id="'.$profile_id.'" stream="'.$stream.'" connections="'.$connections.'" width="'.$width.'" css="'.$css.'"></fb:fan>';
+               .'<fb:fan profile_id="'.$profile_id.'" stream="'.$stream.'" connections="'.$connections.'" width="'.$width.'" css="'.$css.'?'.mktime().'"></fb:fan>';
     } else {
-      $output = '<iframe scrolling="no" frameborder="0" src="http://www.facebook.com/connect/connect.php?id='.$profile_id.'&stream='.$stream.'&connections='.$connections.'&css='.$css.'" allowtransparency="true" style="border: none; width: '.$width.'px; height: 550px;"></iframe>';
+      $output = '<iframe scrolling="no" frameborder="0" src="http://www.facebook.com/connect/connect.php?id='.$profile_id.'&stream='.$stream.'&connections='.$connections.'&css='.$css.'?'.mktime().'" allowtransparency="true" style="border: none; width: '.$width.'px; height: 550px;"></iframe>';
     }
   }
   echo $output;
