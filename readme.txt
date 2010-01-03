@@ -3,7 +3,7 @@ Contributors: Marcos Esperon
 Tags: facebook, fan box
 Requires at least: 2.0.0
 Tested up to: 2.8
-Stable tag: 1.3.1
+Stable tag: 1.3.2
 
 Display a Facebook Fan Box on your blog. Put the Facebook Fan Box in your sidebar using the widget mode or call the function inside your template.
 
@@ -50,6 +50,10 @@ Where:
 3. Facebook Fan Box in your blog
 
 == Changelog ==  
+
+= 1.3.2 =
+* Height option
+* Solved validation errors.
 
 = 1.3.1 =  
 * Solved problem with CSS cache.
