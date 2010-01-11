@@ -1,11 +1,11 @@
 <?php 
 /* 
 Plugin Name: Facebook Fan Box
-Plugin URI: http://www.hnkweb.com/2009/08/03/facebook-fan-box-wordpress-plugin/
+Plugin URI: http://www.dolcebita.com/wordpress/facebook-fan-box-wordpress-plugin/
 Description: Displays a Facebook Fan Box
 Version: 1.3.2
 Author: Marcos Esperon
-Author URI: http://www.hnkweb.com/
+Author URI: http://www.dolcebita.com/
 */
 
 /*  Copyright 2009  Marcos Esperon
