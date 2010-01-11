@@ -15,7 +15,7 @@ If you have a page in Facebook about your blog and want to show the Facebook Fan
 
 If you want to change updates visibility, max. number of fans, width or css properties, just do this:
 
-`<?php facebook_fan_box('API_KEY', 'PROFILE_ID', 'STREAM', 'CONNECTIONS', 'WIDTH', 'CSS', 'IFRAME'); ?>`
+`<?php facebook_fan_box('API_KEY', 'PROFILE_ID', 'STREAM', 'CONNECTIONS', 'WIDTH', 'CSS', 'IFRAME', 'HEIGHT'); ?>`
 
 Where:
 
@@ -28,6 +28,8 @@ Where:
 - CSS: The URL to your own style sheet (more info: http://wiki.developers.facebook.com/index.php/Fb:fan).
 
 - IFRAME: If you are unable to use JavaScript method for some reason, you can use add a Fan Box using an HTML iframe tag (Default value is 0).
+
+- HEIGHT: Limits the height used by the widget.
 
 == Installation ==
 
