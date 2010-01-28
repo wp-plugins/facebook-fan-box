@@ -3,7 +3,7 @@
 Plugin Name: Facebook Fan Box
 Plugin URI: http://www.dolcebita.com/wordpress/facebook-fan-box-wordpress-plugin/
 Description: Displays a Facebook Fan Box
-Version: 1.3.2
+Version: 1.3.3
 Author: Marcos Esperon
 Author URI: http://www.dolcebita.com/
 */
@@ -33,7 +33,7 @@ $ffb_options['widget_fields']['height'] = array('label'=>'Height:', 'type'=>'tex
 $ffb_options['widget_fields']['css'] = array('label'=>'CSS:', 'type'=>'text', 'default'=>'', 'class'=>'widefat', 'size'=>'', 'help'=>'(External URL file)');
 $ffb_options['widget_fields']['iframe'] = array('label'=>'iFrame:', 'type'=>'checkbox', 'default'=>false, 'class'=>'', 'size'=>'', 'help'=>'');
 
-function facebook_fan_box($api_key, $profile_id, $stream = 1, $connections = 10, $width = 300, $css = '', $iframe = 0, $height = 550) {
+function facebook_fan_box($api_key, $profile_id, $stream = 1, $connections = 10, $width = 300, $css = '', $iframe = 0, $height) {
 	$output = '';
   if ($profile_id != '') {
     if($iframe != 1) {
@@ -41,7 +41,8 @@ function facebook_fan_box($api_key, $profile_id, $stream = 1, $connections = 10,
                .'<script type="text/javascript">FB.init("'.$api_key.'", "");</script>'
                .'<fb:fan profile_id="'.$profile_id.'" stream="'.$stream.'" connections="'.$connections.'" width="'.$width.'" css="'.$css.'?'.mktime().'"></fb:fan>';
     } else {
-      $output = '<iframe scrolling="no" frameborder="0" src="http://www.facebook.com/connect/connect.php?id='.$profile_id.'&amp;stream='.$stream.'&amp;connections='.$connections.'&amp;css='.$css.'?'.mktime().'" style="border: none; width: '.$width.'px; height: '.$height.'px;">&nbsp;</iframe>';
+      if($height != '') $height = ' height: '.$height.'px;';
+      $output = '<iframe scrolling="no" frameborder="0" src="http://www.facebook.com/connect/connect.php?id='.$profile_id.'&amp;stream='.$stream.'&amp;connections='.$connections.'&amp;css='.$css.'?'.mktime().'" style="border: none; width: '.$width.'px; '.$height.'">&nbsp;</iframe>';
     }
   }
   echo $output;
