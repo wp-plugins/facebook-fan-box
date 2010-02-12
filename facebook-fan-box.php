@@ -3,7 +3,7 @@
 Plugin Name: Facebook Fan Box
 Plugin URI: http://www.dolcebita.com/wordpress/facebook-fan-box-wordpress-plugin/
 Description: Displays a Facebook Fan Box
-Version: 1.3.3
+Version: 1.4
 Author: Marcos Esperon
 Author URI: http://www.dolcebita.com/
 */
@@ -32,17 +32,18 @@ $ffb_options['widget_fields']['width'] = array('label'=>'Width:', 'type'=>'text'
 $ffb_options['widget_fields']['height'] = array('label'=>'Height:', 'type'=>'text', 'default'=>'550', 'class'=>'', 'size'=>'3', 'help'=>'(Value in px)');
 $ffb_options['widget_fields']['css'] = array('label'=>'CSS:', 'type'=>'text', 'default'=>'', 'class'=>'widefat', 'size'=>'', 'help'=>'(External URL file)');
 $ffb_options['widget_fields']['iframe'] = array('label'=>'iFrame:', 'type'=>'checkbox', 'default'=>false, 'class'=>'', 'size'=>'', 'help'=>'');
+$ffb_options['widget_fields']['logo'] = array('label'=>'Logo:', 'type'=>'checkbox', 'default'=>false, 'class'=>'', 'size'=>'', 'help'=>'');
 
-function facebook_fan_box($api_key, $profile_id, $stream = 1, $connections = 10, $width = 300, $css = '', $iframe = 0, $height) {
+function facebook_fan_box($api_key, $profile_id, $stream = 1, $connections = 10, $width = 300, $css = '', $iframe = 0, $height, $logo = 0) {
 	$output = '';
   if ($profile_id != '') {
     if($iframe != 1) {
       $output = '<script src="http://www.facebook.com/js/api_lib/v0.4/FeatureLoader.js.php" type="text/javascript"></script>'
                .'<script type="text/javascript">FB.init("'.$api_key.'", "");</script>'
-               .'<fb:fan profile_id="'.$profile_id.'" stream="'.$stream.'" connections="'.$connections.'" width="'.$width.'" css="'.$css.'?'.mktime().'"></fb:fan>';
+               .'<fb:fan profile_id="'.$profile_id.'" stream="'.$stream.'" connections="'.$connections.'" logobar="'.$logo.'" width="'.$width.'" css="'.$css.'?'.mktime().'"></fb:fan>';
     } else {
       if($height != '') $height = ' height: '.$height.'px;';
-      $output = '<iframe scrolling="no" frameborder="0" src="http://www.facebook.com/connect/connect.php?id='.$profile_id.'&amp;stream='.$stream.'&amp;connections='.$connections.'&amp;css='.$css.'?'.mktime().'" style="border: none; width: '.$width.'px; '.$height.'">&nbsp;</iframe>';
+      $output = '<iframe scrolling="no" frameborder="0" src="http://www.facebook.com/connect/connect.php?id='.$profile_id.'&amp;stream='.$stream.'&amp;connections='.$connections.'&amp;logobar='.$logo.'&amp;css='.$css.'?'.mktime().'" style="border: none; width: '.$width.'px; '.$height.'">&nbsp;</iframe>';
     }
   }
   echo $output;
@@ -82,10 +83,11 @@ function widget_ffb_init() {
     $height = $item['height'];
     $css = $item['css'];
     $iframe = ($item['iframe']) ? 1 : 0;
+    $logo = ($item['logo']) ? 1 : 0;
     
 		// These lines generate our output.
     echo $before_widget;
-    facebook_fan_box($api_key, $profile_id, $stream, $connections, $width, $css, $iframe, $height);
+    facebook_fan_box($api_key, $profile_id, $stream, $connections, $width, $css, $iframe, $height, $logo);
 		echo $after_widget;
 				
 	}
