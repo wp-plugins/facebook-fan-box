@@ -55,6 +55,9 @@ Where:
 
 == Changelog ==  
 
+= 1.4.1 =
+* Solved issue with height parameter.
+
 = 1.4 =
 * Facebook logo bar option.
 

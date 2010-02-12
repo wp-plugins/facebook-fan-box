@@ -3,7 +3,7 @@
 Plugin Name: Facebook Fan Box
 Plugin URI: http://www.dolcebita.com/wordpress/facebook-fan-box-wordpress-plugin/
 Description: Displays a Facebook Fan Box
-Version: 1.4
+Version: 1.4.1
 Author: Marcos Esperon
 Author URI: http://www.dolcebita.com/
 */
@@ -34,7 +34,7 @@ $ffb_options['widget_fields']['css'] = array('label'=>'CSS:', 'type'=>'text', 'd
 $ffb_options['widget_fields']['iframe'] = array('label'=>'iFrame:', 'type'=>'checkbox', 'default'=>false, 'class'=>'', 'size'=>'', 'help'=>'');
 $ffb_options['widget_fields']['logo'] = array('label'=>'Logo:', 'type'=>'checkbox', 'default'=>false, 'class'=>'', 'size'=>'', 'help'=>'');
 
-function facebook_fan_box($api_key, $profile_id, $stream = 1, $connections = 10, $width = 300, $css = '', $iframe = 0, $height, $logo = 0) {
+function facebook_fan_box($api_key, $profile_id, $stream = 1, $connections = 10, $width = 300, $css = '', $iframe = 0, $height = '', $logo = 0) {
 	$output = '';
   if ($profile_id != '') {
     if($iframe != 1) {
