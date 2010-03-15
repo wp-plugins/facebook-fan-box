@@ -3,7 +3,7 @@
 Plugin Name: Facebook Fan Box
 Plugin URI: http://www.dolcebita.com/wordpress/facebook-fan-box-wordpress-plugin/
 Description: Displays a Facebook Fan Box
-Version: 1.4.1
+Version: 1.5
 Author: Marcos Esperon
 Author URI: http://www.dolcebita.com/
 */
@@ -24,6 +24,7 @@ Author URI: http://www.dolcebita.com/
     along with this program; 
 */
 
+$ffb_options['widget_fields']['title'] = array('label'=>'Title:', 'type'=>'text', 'default'=>'', 'class'=>'widefat', 'size'=>'', 'help'=>'');
 $ffb_options['widget_fields']['api_key'] = array('label'=>'API Key:', 'type'=>'text', 'default'=>'', 'class'=>'widefat', 'size'=>'', 'help'=>'');
 $ffb_options['widget_fields']['profile_id'] = array('label'=>'Profile ID:', 'type'=>'text', 'default'=>'', 'class'=>'widefat', 'size'=>'', 'help'=>'');
 $ffb_options['widget_fields']['stream'] = array('label'=>'Stream:', 'type'=>'checkbox', 'default'=>true, 'class'=>'', 'size'=>'', 'help'=>'');
@@ -33,12 +34,14 @@ $ffb_options['widget_fields']['height'] = array('label'=>'Height:', 'type'=>'tex
 $ffb_options['widget_fields']['css'] = array('label'=>'CSS:', 'type'=>'text', 'default'=>'', 'class'=>'widefat', 'size'=>'', 'help'=>'(External URL file)');
 $ffb_options['widget_fields']['iframe'] = array('label'=>'iFrame:', 'type'=>'checkbox', 'default'=>false, 'class'=>'', 'size'=>'', 'help'=>'');
 $ffb_options['widget_fields']['logo'] = array('label'=>'Logo:', 'type'=>'checkbox', 'default'=>false, 'class'=>'', 'size'=>'', 'help'=>'');
+$ffb_options['widget_fields']['lang'] = array('label'=>'Language:', 'type'=>'text', 'default'=>'en_EN', 'class'=>'', 'size'=>'4', 'help'=>'(en_US, es_ES...)');
 
-function facebook_fan_box($api_key, $profile_id, $stream = 1, $connections = 10, $width = 300, $css = '', $iframe = 0, $height = '', $logo = 0) {
+function facebook_fan_box($api_key, $profile_id, $stream = 1, $connections = 10, $width = 300, $css = '', $iframe = 0, $height = '', $logo = 0, $lang = '') {
 	$output = '';
   if ($profile_id != '') {
     if($iframe != 1) {
-      $output = '<script src="http://www.facebook.com/js/api_lib/v0.4/FeatureLoader.js.php" type="text/javascript"></script>'
+      if($lang != '') $lang = '/'.$lang;
+      $output = '<script src="http://www.facebook.com/js/api_lib/v0.4/FeatureLoader.js.php'.$lang.'" type="text/javascript"></script>'
                .'<script type="text/javascript">FB.init("'.$api_key.'", "");</script>'
                .'<fb:fan profile_id="'.$profile_id.'" stream="'.$stream.'" connections="'.$connections.'" logobar="'.$logo.'" width="'.$width.'" css="'.$css.'?'.mktime().'"></fb:fan>';
     } else {
@@ -59,10 +62,11 @@ function widget_ffb_init() {
 	function widget_ffb($args) {
 
 		global $ffb_options;
-		
-		// $args is an array of strings that help widgets to conform to
+    
+    // $args is an array of strings that help widgets to conform to
 		// the active theme: before_widget, before_title, after_widget,
 		// and after_title are the array keys. Default tags: li and h2.
+    
 		extract($args);
 		
 		$options = get_option('widget_ffb');
@@ -75,6 +79,7 @@ function widget_ffb_init() {
 			}
 		}    
 		
+    $title = $item['title'];
     $api_key = $item['api_key'];
     $profile_id = $item['profile_id'];
     $stream = ($item['stream']) ? 1 : 0;
@@ -84,11 +89,12 @@ function widget_ffb_init() {
     $css = $item['css'];
     $iframe = ($item['iframe']) ? 1 : 0;
     $logo = ($item['logo']) ? 1 : 0;
+    $lang = $item['lang'];
     
 		// These lines generate our output.
-    echo $before_widget;
-    facebook_fan_box($api_key, $profile_id, $stream, $connections, $width, $css, $iframe, $height, $logo);
-		echo $after_widget;
+    echo $before_widget . $before_title . $title . $after_title;    
+    facebook_fan_box($api_key, $profile_id, $stream, $connections, $width, $css, $iframe, $height, $logo, $lang);
+    echo $after_widget;
 				
 	}
 

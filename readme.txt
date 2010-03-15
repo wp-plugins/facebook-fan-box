@@ -3,7 +3,7 @@ Contributors: Marcos Esperon
 Tags: facebook, fan box
 Requires at least: 2.0.0
 Tested up to: 2.8
-Stable tag: 1.4
+Stable tag: 1.5
 
 Display a Facebook Fan Box on your blog. Put the Facebook Fan Box in your sidebar using the widget mode or call the function inside your template.
 
@@ -15,7 +15,7 @@ If you have a page in Facebook about your blog and want to show the Facebook Fan
 
 If you want to change updates visibility, max. number of fans, width or css properties, just do this:
 
-`<?php facebook_fan_box('API_KEY', 'PROFILE_ID', 'STREAM', 'CONNECTIONS', 'WIDTH', 'CSS', 'IFRAME', 'HEIGHT', 'LOGO'); ?>`
+`<?php facebook_fan_box('API_KEY', 'PROFILE_ID', 'STREAM', 'CONNECTIONS', 'WIDTH', 'CSS', 'IFRAME', 'HEIGHT', 'LOGO', 'LANG'); ?>`
 
 Where:
 
@@ -32,6 +32,8 @@ Where:
 - HEIGHT: Limits the height used by the widget.
 
 - LOGO: Show/Hide Facebook logo bar.
+
+- LANG: Facebook Locale (en_US, es_ES...).
 
 == Installation ==
 
@@ -54,6 +56,10 @@ Where:
 3. Facebook Fan Box in your blog
 
 == Changelog ==  
+
+= 1.5 =
+* Facebook locale option.
+* Title enabled in the widget method.
 
 = 1.4.1 =
 * Solved issue with height parameter.
