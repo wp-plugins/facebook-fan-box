@@ -42,18 +42,18 @@ Where:
 2. Activate the plugin through the 'Plugins' menu in WordPress.
 
 3. Visit http://www.facebook.com/pages/create.php to create a new page in Facebook.
-   Then visit http://www.facebook.com/developers/wizard.php to obtain the API_KEY and PROFILE_ID 
+   Then visit http://www.facebook.com/facebook-widgets/fanbox.php to obtain the API_KEY and PROFILE_ID 
 
 4. Use this information to call the function inside your template or activate the widget.
 
 == Screenshots ==
-1. Facebook Fan Box - Select Page
+1. Facebook Fan Box - Select Fan box
 
-2. Facebook Fan Box - Copy API KEY and PROFILE ID
+2. Facebook Fan Box - Select Page and Other
 
-<a href="http://www.facebook.com/developers/wizard.php">click here</a>
+<a href="http://www.facebook.com/facebook-widgets/fanbox.php">click here</a>
 
-3. Facebook Fan Box in your blog
+3. Facebook Fan Box - Copy your API Key and Profile ID from text to your widget
 
 == Changelog ==  
 
