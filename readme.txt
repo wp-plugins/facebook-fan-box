@@ -60,6 +60,7 @@ Where:
 = 1.5 =
 * Facebook locale option.
 * Title enabled in the widget method.
+* New Facebook javascript call.
 
 = 1.4.1 =
 * Solved issue with height parameter.

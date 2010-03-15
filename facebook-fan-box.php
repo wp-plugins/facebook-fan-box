@@ -34,15 +34,17 @@ $ffb_options['widget_fields']['height'] = array('label'=>'Height:', 'type'=>'tex
 $ffb_options['widget_fields']['css'] = array('label'=>'CSS:', 'type'=>'text', 'default'=>'', 'class'=>'widefat', 'size'=>'', 'help'=>'(External URL file)');
 $ffb_options['widget_fields']['iframe'] = array('label'=>'iFrame:', 'type'=>'checkbox', 'default'=>false, 'class'=>'', 'size'=>'', 'help'=>'');
 $ffb_options['widget_fields']['logo'] = array('label'=>'Logo:', 'type'=>'checkbox', 'default'=>false, 'class'=>'', 'size'=>'', 'help'=>'');
-$ffb_options['widget_fields']['lang'] = array('label'=>'Language:', 'type'=>'text', 'default'=>'en_EN', 'class'=>'', 'size'=>'4', 'help'=>'(en_US, es_ES...)');
+$ffb_options['widget_fields']['lang'] = array('label'=>'Language:', 'type'=>'text', 'default'=>'en_US', 'class'=>'', 'size'=>'4', 'help'=>'(en_US, es_ES...)');
 
 function facebook_fan_box($api_key, $profile_id, $stream = 1, $connections = 10, $width = 300, $css = '', $iframe = 0, $height = '', $logo = 0, $lang = '') {
 	$output = '';
   if ($profile_id != '') {
     if($iframe != 1) {
       if($lang != '') $lang = '/'.$lang;
-      $output = '<script src="http://www.facebook.com/js/api_lib/v0.4/FeatureLoader.js.php'.$lang.'" type="text/javascript"></script>'
-               .'<script type="text/javascript">FB.init("'.$api_key.'", "");</script>'
+      /* -- Old Facebook call -- */
+      /*$output = '<script src="http://www.facebook.com/js/api_lib/v0.4/FeatureLoader.js.php'.$lang.'" type="text/javascript"></script><script type="text/javascript">FB.init("'.$api_key.'", "");</script><fb:fan profile_id="'.$profile_id.'" stream="'.$stream.'" connections="'.$connections.'" logobar="'.$logo.'" width="'.$width.'" css="'.$css.'?'.mktime().'"></fb:fan>';*/
+      $output = '<script type="text/javascript" src="http://static.ak.connect.facebook.com/connect.php'.$lang.'"></script>'
+               .'<script type="text/javascript">FB.init("'.$api_key.'");</script>'
                .'<fb:fan profile_id="'.$profile_id.'" stream="'.$stream.'" connections="'.$connections.'" logobar="'.$logo.'" width="'.$width.'" css="'.$css.'?'.mktime().'"></fb:fan>';
     } else {
       if($height != '') $height = ' height: '.$height.'px;';
