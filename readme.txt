@@ -1,9 +1,9 @@
 ﻿=== Facebook Fan box ===
 Contributors: Marcos Esperon
 Tags: facebook, fan box
-Requires at least: 2.0.0
-Tested up to: 2.8
-Stable tag: 1.5
+Requires at least: 2.5
+Tested up to: 2.9
+Stable tag: 1.6
 
 Display a Facebook Fan Box on your blog. Put the Facebook Fan Box in your sidebar using the widget mode or call the function inside your template.
 
@@ -35,6 +35,8 @@ Where:
 
 - LANG: Facebook Locale (en_US, es_ES...).
 
+UPDATED: Facebook changed the social plugins so Fan Box is now Like Box (and there is a new plugin for it). If you want to use this plugin LEAVE API_KEY VALUE EMPTY.
+
 == Installation ==
 
 1. Upload the entire facebook-fan-box folder to your wp-content/plugins/ directory.
@@ -42,20 +44,19 @@ Where:
 2. Activate the plugin through the 'Plugins' menu in WordPress.
 
 3. Visit http://www.facebook.com/pages/create.php to create a new page in Facebook.
-   Then visit http://www.facebook.com/facebook-widgets/fanbox.php to obtain the API_KEY and PROFILE_ID 
+   Edit your page and copy its Page ID from adress bar.
 
 4. Use this information to call the function inside your template or activate the widget.
 
 == Screenshots ==
 1. Facebook Fan Box - Select Fan box
 
-2. Facebook Fan Box - Select Page and Other
-
-<a href="http://www.facebook.com/facebook-widgets/fanbox.php">click here</a>
-
-3. Facebook Fan Box - Copy your API Key and Profile ID from text to your widget
+2. Facebook Fan Box - Copy your Page ID from text at adress bar
 
 == Changelog ==  
+
+= 1.6 =
+* New Fan Box call: not use API_KEY value.
 
 = 1.5 =
 * Facebook locale option.

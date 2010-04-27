@@ -3,7 +3,7 @@
 Plugin Name: Facebook Fan Box
 Plugin URI: http://www.dolcebita.com/wordpress/facebook-fan-box-wordpress-plugin/
 Description: Displays a Facebook Fan Box
-Version: 1.5
+Version: 1.6
 Author: Marcos Esperon
 Author URI: http://www.dolcebita.com/
 */
@@ -39,16 +39,23 @@ $ffb_options['widget_fields']['lang'] = array('label'=>'Language:', 'type'=>'tex
 function facebook_fan_box($api_key, $profile_id, $stream = 1, $connections = 10, $width = 300, $css = '', $iframe = 0, $height = '', $logo = 0, $lang = '') {
 	$output = '';
   if ($profile_id != '') {
-    if($iframe != 1) {
-      if($lang != '') $lang = '/'.$lang;
-      /* -- Old Facebook call -- */
-      /*$output = '<script src="http://www.facebook.com/js/api_lib/v0.4/FeatureLoader.js.php'.$lang.'" type="text/javascript"></script><script type="text/javascript">FB.init("'.$api_key.'", "");</script><fb:fan profile_id="'.$profile_id.'" stream="'.$stream.'" connections="'.$connections.'" logobar="'.$logo.'" width="'.$width.'" css="'.$css.'?'.mktime().'"></fb:fan>';*/
-      $output = '<script type="text/javascript" src="http://static.ak.connect.facebook.com/connect.php'.$lang.'"></script>'
-               .'<script type="text/javascript">FB.init("'.$api_key.'");</script>'
-               .'<fb:fan profile_id="'.$profile_id.'" stream="'.$stream.'" connections="'.$connections.'" logobar="'.$logo.'" width="'.$width.'" css="'.$css.'?'.mktime().'"></fb:fan>';
+    if($api_key == '') {
+      $stream = ($stream == 1) ? 'true' : 'false';
+      $header = ($logo == 1) ? 'true' : 'false';        
+      $locale = $lang;
+      $output = '<iframe src="http://www.facebook.com/plugins/fan.php?id='.$profile_id.'&amp;width='.$width.'&amp;connections='.$connections.'&amp;stream='.$stream.'&amp;header='.$header.'&amp;locale='.$locale.'" scrolling="no" frameborder="0" allowTransparency="true" style="border:none; overflow:hidden; width:'.$width.'px; height:'.$height.'px"></iframe>';
     } else {
-      if($height != '') $height = ' height: '.$height.'px;';
-      $output = '<iframe scrolling="no" frameborder="0" src="http://www.facebook.com/connect/connect.php?id='.$profile_id.'&amp;stream='.$stream.'&amp;connections='.$connections.'&amp;logobar='.$logo.'&amp;css='.$css.'?'.mktime().'" style="border: none; width: '.$width.'px; '.$height.'">&nbsp;</iframe>';
+      if($iframe != 1) {
+        if($lang != '') $lang = '/'.$lang;
+        /* -- Old Facebook call -- */
+        /*$output = '<script src="http://www.facebook.com/js/api_lib/v0.4/FeatureLoader.js.php'.$lang.'" type="text/javascript"></script><script type="text/javascript">FB.init("'.$api_key.'", "");</script><fb:fan profile_id="'.$profile_id.'" stream="'.$stream.'" connections="'.$connections.'" logobar="'.$logo.'" width="'.$width.'" css="'.$css.'?'.mktime().'"></fb:fan>';*/
+        $output = '<script type="text/javascript" src="http://static.ak.connect.facebook.com/connect.php'.$lang.'"></script>'
+                 .'<script type="text/javascript">FB.init("'.$api_key.'");</script>'
+                 .'<fb:fan profile_id="'.$profile_id.'" stream="'.$stream.'" connections="'.$connections.'" logobar="'.$logo.'" width="'.$width.'" css="'.$css.'?'.mktime().'"></fb:fan>';
+      } else {
+        if($height != '') $height = ' height: '.$height.'px;';
+        $output = '<iframe scrolling="no" frameborder="0" src="http://www.facebook.com/connect/connect.php?id='.$profile_id.'&amp;stream='.$stream.'&amp;connections='.$connections.'&amp;logobar='.$logo.'&amp;css='.$css.'?'.mktime().'" style="border: none; width: '.$width.'px; '.$height.'">&nbsp;</iframe>';
+      }
     }
   }
   echo $output;
